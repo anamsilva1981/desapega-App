@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { MenuComponent } from '../../components/menu/menu.component';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-products',
   standalone: true,
   imports: [MenuComponent],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  templateUrl: './products.component.html',
+  styleUrl: './products.component.scss'
 })
-export class HomeComponent {
+export class ProductsComponent {
 
 }
