@@ -1,2 +1,103 @@
 <app-menu></app-menu>
-<p>products works!</p>
+
+<div class="container-fluid pt-3">
+
+    <div class="row">
+        <div class="col-12">
+            <h1 class="titulo">Cadastro de usuários</h1>
+            <h2 class="subtitulo">Gerencie usuários, adicionando, editando ou excluindo</h2>
+        </div>
+    </div>
+
+    <div class="row mt-2">
+        <div class="col-12">
+            <app-button class="float-end" textButton="+ cadastrar" ></app-button>
+
+            <!-- <mat-form-field>
+                <mat-label>Filter</mat-label>
+                <input matInput  placeholder="Digite sua busca" #input>
+            </mat-form-field> -->
+
+             <table class="mat-elevation-z8" mat-table [dataSource]="dataSource" matSort>
+                <!-- <ng-container matColumnDef="id">
+                    <th class="th-table" mat-header-cell *matHeaderCellDef mat-sort-header> Id </th>
+                    <td class="td-table" mat-cell *matCellDef="let user"> {{user.firebaseId}} </td>
+                </ng-container> -->
+
+                <ng-container matColumnDef="title">
+                    <th class="th-table" mat-header-cell *matHeaderCellDef mat-sort-header> Produto </th>
+                    <td class="td-table" mat-cell *matCellDef="let user"> {{user.title}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="description">
+                    <th class="th-table" mat-header-cell *matHeaderCellDef mat-sort-header> Descrição </th>
+                    <td class="td-table" mat-cell *matCellDef="let user"> {{user.description}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="quantity">
+                    <th class="th-table" mat-header-cell *matHeaderCellDef mat-sort-header> quantity </th>
+                    <td class="td-table" mat-cell *matCellDef="let user"> {{user.quantity}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="condition">
+                    <th class="th-table" mat-header-cell *matHeaderCellDef mat-sort-header> condition </th>
+                    <td class="td-table" mat-cell *matCellDef="let user"> {{user.condition}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="status">
+                    <th class="th-table" mat-header-cell *matHeaderCellDef mat-sort-header> status </th>
+                    <td class="td-table" mat-cell *matCellDef="let user"> {{user.status}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="images">
+                    <th class="th-table" mat-header-cell *matHeaderCellDef mat-sort-header> images </th>
+                    <td class="td-table" mat-cell *matCellDef="let user"> {{user.images}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="createdAt">
+                    <th class="th-table" mat-header-cell *matHeaderCellDef mat-sort-header> createdAt </th>
+                    <td class="td-table" mat-cell *matCellDef="let user"> {{user.createdAt}} </td>
+                </ng-container>
+
+                <!-- <ng-container matColumnDef="benefits">
+                    <th class="th-table" mat-header-cell *matHeaderCellDef mat-sort-header> Benefícios </th>
+                    <td class="td-table" mat-cell *matCellDef="let user"> 
+                        @if (user.healthPlan || user.dentalPlan) {
+                            <mat-icon class="c-primary">check</mat-icon> 
+                        }
+
+                        @if (!user.healthPlan && !user.dentalPlan ){
+                            <mat-icon class="c-error">remove</mat-icon>
+                        }
+                    </td>
+                </ng-container> -->
+
+                <ng-container matColumnDef="action">
+                    <th class="th-table" mat-header-cell *matHeaderCellDef mat-sort-header></th>
+                    <td class="td-table" mat-cell *matCellDef="let user"> 
+                        <mat-icon class="icone-tabela">visibility</mat-icon>    
+                        <mat-icon class="icone-tabela" >edit</mat-icon>    
+                        <mat-icon class="icone-tabela">delete</mat-icon>    
+                    </td>
+                </ng-container>
+
+                <tr class="mat-row" *matNoDataRow>
+                    <!-- <td class="mat-cell" colspan="4">Não foram encontrados dados para a pesquisa:  "{{input.value}}"</td> -->
+                    <td class="mat-cell" colspan="4">Não foram encontrados dados para a pesquisa:  </td>
+                </tr>
+                
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                
+                <tr class="mat-row" *matNoDataRow>
+                    <!-- <td class="mat-cell" colspan="4">Não foram encontrados dados para a pesquisa: "{{input.value}}"</td> -->
+                    <td class="mat-cell" colspan="4">Não foram encontrados dados para a pesquisa:  </td>
+                </tr>
+            </table>
+
+
+            <!-- <mat-paginator class="shadow-sm" [pageSizeOptions]="[5, 10]" aria-label="Selecione usuários por página"></mat-paginator> -->
+        </div>
+    </div>
+
+</div>
