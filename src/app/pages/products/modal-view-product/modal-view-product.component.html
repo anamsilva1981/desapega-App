@@ -1,0 +1,51 @@
+<div class="container-fluid p-3">
+    <mat-icon class="float-end" (click)="closeModal()">close</mat-icon>
+
+    <h1 class="titulo">Detalhes do produto</h1>
+    <h2 class="subtitulo">Tenha uma descrição mais detalhada do produto</h2>
+
+    <div class="row mt-3">
+        <div class="col-6">
+            <h4 class="titulo-informacao">Nome do produto</h4>
+            <p class="informacao">{{productData.title}}</p>
+        </div>
+        
+        <div class="col-6">
+            <h4 class="titulo-informacao">Condição</h4>
+            <p class="informacao">{{productData.condition}}</p>
+        </div>        
+        
+        <div class="col-6">
+            <h4 class="titulo-informacao">Categoria</h4>
+            <p class="informacao">{{productData.category}}</p>
+        </div>
+                
+        <div class="col-6">
+            <h4 class="titulo-informacao">Status</h4>
+            <p class="informacao">{{productData.status}}</p>
+        </div>
+        
+        <div class="col-6">
+            <h4 class="titulo-informacao">Apelino</h4>
+            <p class="informacao">{{productData.nickName}}</p>
+        </div>
+        
+        <div class="col-6">
+            <h4 class="titulo-informacao">Data da publicação</h4>
+            <p class="informacao">{{productData.createdAt}}</p>
+        </div>
+        
+        <div class="col-12">
+            <h4 class="titulo-informacao">Descrição</h4>
+            <p class="informacao">{{productData.description}}</p>
+        </div>
+
+        <div class="col-6">
+            <h4 class="titulo-informacao">Imagem</h4>
+            <p class="informacao">{{productData.images}}</p>
+        </div>
+        
+
+
+    </div>
+</div>

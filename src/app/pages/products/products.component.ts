@@ -2,23 +2,29 @@ import { Component, ViewChild } from '@angular/core';
 import { MenuComponent } from '../../components/menu/menu.component';
 import { ButtonComponent } from '../../components/button/button.component';
 
-import {MatTableDataSource, MatTableModule} from '@angular/material/table';
-import {MatIconModule} from '@angular/material/icon';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
 import { DonationItem } from '../../interfaces/product.interface';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 import { ProductsService } from '../../services/products.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalViewProductComponent } from './modal-view-product/modal-view-product.component';
+
+
 
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [MenuComponent, ButtonComponent, MatTableModule, MatIconModule],
+  imports: [MenuComponent, ButtonComponent, MatTableModule, MatIconModule, MatPaginatorModule, MatSortModule],
   templateUrl: './products.component.html',
-  styleUrl: './products.component.scss'
+  styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent {
 
-  displayedColumns: string[] = ['title', 'description', 'quantity', 'condition', 'status', 'images', 'createdAt'];
+  displayedColumns: string[] = ['title', 'description', 'quantity', 'condition', 'status', 'images', 'createdAt', 'action'];
   dataSource: any;
   listProducts: DonationItem[] = [];
 
@@ -27,31 +33,40 @@ export class ProductsComponent {
 
   constructor(
     private productService: ProductsService,
-    // public dialog: MatDialog
-  ){
+    public dialog: MatDialog
+  ) {
     this.dataSource = new MatTableDataSource<any>(this.listProducts);
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.getAllProducts();
   }
 
-  getAllProducts(){
-  this.productService.getAllProducts().subscribe({
-    next: (response: any) => {
-      console.log('-- lista de products: ', response)
-      this.listProducts = response;
+  getAllProducts() {
+    this.productService.getAllProducts().subscribe({
+      next: (response: any) => {
+        console.log('-- lista de products: ', response)
+        this.listProducts = response;
 
-      this.dataSource = new MatTableDataSource<any>(this.listProducts);
-      this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
-      this.paginator._intl.itemsPerPageLabel="Itens por página";
-    },
-    error: (error: any) => {
-      console.log('-- Error ao listar os produtos: ', error)
-    }
-  });
-}
+        this.dataSource = new MatTableDataSource<any>(this.listProducts);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+        this.paginator._intl.itemsPerPageLabel = "Itens por página";
+      },
+      error: (error: any) => {
+        console.log('-- Error ao listar os produtos: ', error)
+      }
+    });
+  }
+
+    // Lógica do modal
+  openModalViewProduct(product: DonationItem){
+    this.dialog.open(ModalViewProductComponent, {
+      width: '700px',
+      height: '530px',
+      data: product
+    })
+  }
 
 }
 
