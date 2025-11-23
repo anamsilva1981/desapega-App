@@ -12,6 +12,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { ProductsService } from '../../services/products.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalViewProductComponent } from './modal-view-product/modal-view-product.component';
+import { ModalFormProductComponent } from './modal-form-product/modal-form-product.component';
 
 
 
@@ -66,6 +67,35 @@ export class ProductsComponent {
       height: '530px',
       data: product
     })
+  }
+
+  openModalAddProduct(){
+    this.dialog.open(ModalFormProductComponent, {
+      width: '700px',
+      height: '530px',
+    }).afterClosed().subscribe(() => this.getAllProducts());
+  }
+
+  openModalEditUser(product: DonationItem){
+        this.dialog.open(ModalFormProductComponent, {
+      width: '700px',
+      height: '430px',
+      data: product
+    }).afterClosed().subscribe(() => this.getAllProducts());
+  }
+
+  deleteUser(firebaseId: string){
+    this.productService.deleteProduct(firebaseId).then(
+      (response: any) => {
+        window.alert('Cadastro deletado com sucesso')
+      }
+    ).catch(
+      (err: any) => {
+        console.log('Erro ao realizar o cadastro', err)
+        window.alert('Cadastro realizado com sucesso');
+      });
+     
+    this.getAllProducts();
   }
 
 }

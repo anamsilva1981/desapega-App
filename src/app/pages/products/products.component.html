@@ -4,14 +4,19 @@
 
     <div class="row">
         <div class="col-12">
-            <h1 class="titulo">Cadastro de usuários</h1>
-            <h2 class="subtitulo">Gerencie usuários, adicionando, editando ou excluindo</h2>
+            <h1 class="titulo">Cadastro de produtos</h1>
+            <h2 class="subtitulo">Gerencie produtos, adicionando, editando ou excluindo</h2>
         </div>
     </div>
 
     <div class="row mt-2">
         <div class="col-12">
-            <app-button class="float-end" textButton="+ cadastrar" ></app-button>
+            <app-button class="float-end" textButton="+ cadastrar" (click)="openModalAddProduct()"></app-button>
+
+            <!-- <mat-form-field> Barra de pesquisa
+                <mat-label>Filter</mat-label>
+                <input matInput (keyup)="applyFilter($event)" placeholder="Digite sua busca" #input>
+            </mat-form-field> -->
 
              <table class="mat-elevation-z8" mat-table [dataSource]="dataSource" matSort>
 
@@ -76,7 +81,7 @@
             </table>
 
 
-            <mat-paginator class="shadow-sm" [pageSizeOptions]="[5, 10]" aria-label="Selecione usuários por página"></mat-paginator>
+            <mat-paginator class="shadow-sm" [pageSizeOptions]="[5, 10]" aria-label="Selecione produtos por página"></mat-paginator>
         </div>
     </div>
 

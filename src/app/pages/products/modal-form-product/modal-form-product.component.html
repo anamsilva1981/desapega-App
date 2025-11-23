@@ -1,0 +1,122 @@
+<div class="container-fluid p-3">
+    <mat-icon class="float-end" (click)="closeModal()">close</mat-icon>
+
+    <!-- <h1 class="titulo" *ngIf="editUser">Edite os dados de Usuário</h1> -->
+    <h1 class="titulo">Cadastro de Usuário</h1>
+    <h2 class="subtitulo">Preencha o formulario para salvar os dados do usuário</h2>
+
+    <form class="row" [formGroup]="formProduct">
+        <div class="col-12 col-md-6 mb-2">
+            <mat-form-field  class="full-width w-100">
+                <mat-label>Nome do produto</mat-label>
+                <input 
+                    type="text" 
+                    matInput 
+                    formControlName="title"
+                    placeholder="Digite seu title">
+                @if (formProduct.controls['title'].invalid) {
+                <mat-error>Por favor digite um titulo válido</mat-error>
+                }
+            </mat-form-field>
+        </div>
+        <div class="col-12 col-md-6 mb-2">
+            <mat-form-field  class="full-width w-100">
+                <mat-label>Condição</mat-label>
+                <input 
+                    type="condition" 
+                    matInput 
+                    formControlName="condition"
+                    placeholder="Digite seu nome">
+                @if (formProduct.controls['condition'].invalid) {
+                <mat-error>Por favor digite um condição válido</mat-error>
+                }
+            </mat-form-field>
+        </div>
+        <div class="col-12 col-md-6 mb-2">
+            <mat-form-field  class="full-width w-100">
+                <mat-label>Categoria</mat-label>
+                <input 
+                    type="text" 
+                    matInput 
+                    formControlName="category"
+                    placeholder="Digite o Categoria">
+                @if (formProduct.controls['category'].invalid) {
+                <mat-error>Por favor digite um Categoria válido</mat-error>
+                }
+            </mat-form-field>
+        </div>
+        <div class="col-12 col-md-6 mb-2">
+            <mat-form-field  class="full-width w-100">
+                <mat-label>quantidade</mat-label>
+                <input 
+                    type="text" 
+                    matInput 
+                    formControlName="quantity"
+                    placeholder="Digite o quantidade">
+                @if (formProduct.controls['quantity'].invalid) {
+                <mat-error>Por favor digite um Categoria válido</mat-error>
+                }
+            </mat-form-field>
+        </div>
+        <div class="col-12 col-md-6 mb-2">
+            <mat-form-field  class="full-width w-100">
+                <mat-label>Status</mat-label>
+                <input 
+                    type="text" 
+                    matInput 
+                    formControlName="status"
+                    placeholder="Digite seu status">
+                @if (formProduct.controls['status'].invalid) {
+                <mat-error>Por favor digite um status válido</mat-error>
+                }
+            </mat-form-field>
+        </div>
+
+        <div class="col-12 col-md-6 mb-2">
+            <mat-form-field  class="full-width w-100">
+                <mat-label>Apelino</mat-label>
+                <input 
+                    type="text" 
+                    matInput 
+                    formControlName="nickName"
+                    placeholder="Digite seu Apelino">
+                @if (formProduct.controls['nickName'].invalid) {
+                <mat-error>Por favor digite um Apelino válido</mat-error>
+                }
+            </mat-form-field>
+        </div>
+
+        <div class="col-12 col-md-6 mb-2">
+            <mat-form-field  class="full-width w-100">
+                <mat-label>Descrição</mat-label>
+                <input 
+                    type="text" 
+                    matInput 
+                    formControlName="description"
+                    placeholder="Digite seu status">
+                @if (formProduct.controls['description'].invalid) {
+                <mat-error>Por favor digite uma Descrição válido</mat-error>
+                }
+            </mat-form-field>
+        </div>
+
+        <div class="col-12 col-md-6 mb-2">
+            <mat-form-field  class="full-width w-100">
+                <mat-label>images</mat-label>
+                <input 
+                    type="text" 
+                    matInput 
+                    formControlName="images"
+                    placeholder="Digite seu images">
+                @if (formProduct.controls['images'].invalid) {
+                <mat-error>Por favor digite um images válido</mat-error>
+                }
+            </mat-form-field>
+        </div>
+
+         <div class="col-12">
+            <button class="btn-primary float-end" [disabled]="!formProduct.valid" (click)="saveProduct()">Salvar</button>
+         </div>
+
+    </form>
+</div>

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
+import { DonationItem } from '../interfaces/product.interface';
 // import { DonationItem } from '../interfaces/product.interface';
 
 @Injectable({
@@ -13,18 +14,18 @@ export class ProductsService {
   ) { }
 
   getAllProducts(){
-    return this.dataBaseStore.collection('products', product => product.orderBy('title')).valueChanges({idField: 'firebaseId'}) as Observable<any[]>;
+    return this.dataBaseStore.collection('product', product => product.orderBy('title')).valueChanges({idField: 'firebaseId'}) as Observable<any[]>;
   }
 
-//   addUser(product: DonationItem){
-//     return this.dataBaseStore.collection('products').add(product);
-//   }
+  addProduct(product: DonationItem){
+    return this.dataBaseStore.collection('product').add(product);
+  }
 
-//   updateUser(productId: string, product: DonationItem){
-//     return this.dataBaseStore.collection('products').doc(productId).update(product)
-//   }
+  updateProduct(productId: string, product: DonationItem){
+    return this.dataBaseStore.collection('product').doc(productId).update(product)
+  }
 
-//   deleteUser(productId: string){
-//     return this.dataBaseStore.collection('products').doc(productId).delete();
-//   }
+  deleteProduct(productId: string){
+    return this.dataBaseStore.collection('product').doc(productId).delete();
+  }
 }
