@@ -79,7 +79,7 @@ export class ProductsComponent {
   openModalEditUser(product: DonationItem){
         this.dialog.open(ModalFormProductComponent, {
       width: '700px',
-      height: '430px',
+      height: '530px',
       data: product
     }).afterClosed().subscribe(() => this.getAllProducts());
   }
