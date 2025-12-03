@@ -1,10 +1,6 @@
-export type DonationCondition = 'novo' | 'seminovo' | 'usado';
+export type DonationCondition = 'novo' | 'seminovo' | 'usado' | 'reaproveitar';
 
-export type DonationStatus =
-  | 'disponivel'
-  | 'reservado'
-  | 'doado'
-  | 'inativo';
+export type DonationStatus = 'disponivel' | 'reservado' | 'doado' | 'inativo';
 
 export interface DonationItem {
   id?: string; 

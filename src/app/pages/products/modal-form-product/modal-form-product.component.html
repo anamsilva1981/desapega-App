@@ -1,9 +1,9 @@
 <div class="container-fluid p-3">
     <mat-icon class="float-end" (click)="closeModal()">close</mat-icon>
 
-    <!-- <h1 class="titulo" *ngIf="editUser">Edite os dados de Usuário</h1> -->
-    <h1 class="titulo">Cadastro de Usuário</h1>
-    <h2 class="subtitulo">Preencha o formulario para salvar os dados do usuário</h2>
+    <!-- <h1 class="titulo" *ngIf="editUser">Edite os dados de Produtos</h1> -->
+    <h1 class="titulo">Cadastro de Produtos</h1>
+    <h2 class="subtitulo">Preencha o formulario para salvar os dados do produtos</h2>
 
     <form class="row" [formGroup]="formProduct">
         <div class="col-12 col-md-6 mb-2">
@@ -22,11 +22,13 @@
         <div class="col-12 col-md-6 mb-2">
             <mat-form-field  class="full-width w-100">
                 <mat-label>Condição</mat-label>
-                <input 
-                    type="condition" 
-                    matInput 
-                    formControlName="condition"
-                    placeholder="Digite seu nome">
+                <mat-select formControlName="condition">
+                    <mat-option value="novo">Novo</mat-option>
+                    <mat-option value="seminovo">Seminovo</mat-option>
+                    <mat-option value="usado">Usado</mat-option>
+                    <mat-option value="reaproveitar">Para Reaproveitar</mat-option>
+                </mat-select>
+                
                 @if (formProduct.controls['condition'].invalid) {
                 <mat-error>Por favor digite um condição válido</mat-error>
                 }

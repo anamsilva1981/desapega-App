@@ -6,12 +6,14 @@ import { DonationItem } from '../../../interfaces/product.interface';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+
 
 
 @Component({
   selector: 'app-modal-form-product',
   standalone: true,
-  imports: [ MatIconModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule ],
+  imports: [ MatIconModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule, MatSelectModule ],
   templateUrl: './modal-form-product.component.html',
   styleUrls: ['./modal-form-product.component.scss']
 })
@@ -66,7 +68,7 @@ formProduct!: FormGroup;
       title: [null, [Validators.required]],
       description: [null, [Validators.required]],
       category: [null],
-      condition: [null],
+      condition: [null, Validators.required],
       status: [null],
       quantity: [null, [Validators.required]],
       images: [null],
