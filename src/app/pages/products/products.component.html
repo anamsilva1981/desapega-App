@@ -46,15 +46,22 @@
                 </ng-container>
 
                 <ng-container matColumnDef="images">
-                    <th class="th-table" mat-header-cell *matHeaderCellDef mat-sort-header> images </th>
-                    <td class="td-table" mat-cell *matCellDef="let product"> {{product.images}} </td>
+                    <th class="th-table" mat-header-cell *matHeaderCellDef mat-sort-header> Imagem </th>
+                    <td class="td-table" mat-cell *matCellDef="let product">
+                        <img 
+                        *ngIf="product.images"
+                        [src]="product.images"
+                        alt="imagem do produto"
+                        class="img-thumb"
+                        (click)="openImage(product.images)"
+                        />
+                    </td>
                 </ng-container>
 
                 <ng-container matColumnDef="createdAt">
                     <th class="th-table" mat-header-cell *matHeaderCellDef mat-sort-header> createdAt </th>
-                    <td class="td-table" mat-cell *matCellDef="let product"> {{product.createdAt}} </td>
+                    <td class="td-table" mat-cell *matCellDef="let product"> {{product.createdAt | date: 'dd/mm/yyy'}} </td>
                 </ng-container>
-
 
                 <ng-container matColumnDef="action">
                     <th class="th-table" mat-header-cell *matHeaderCellDef mat-sort-header></th>

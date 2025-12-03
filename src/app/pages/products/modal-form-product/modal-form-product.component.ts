@@ -39,6 +39,10 @@ formProduct!: FormGroup;
   saveProduct(){
     const objectUserForm: DonationItem = this.formProduct.getRawValue();
 
+    if(!this.data || !this.data.title){
+      objectUserForm.createdAt = new Date().toISOString();
+    }
+
     if(this.data && this.data.title){
       
       this.productService.updateProduct(this.data.firebaseId, objectUserForm).then(

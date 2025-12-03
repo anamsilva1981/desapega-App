@@ -48,3 +48,17 @@ tr{
         transform: rotate(359deg);
     }
 }
+
+.img-thumb {
+  width: 55px;
+  height: 55px;
+  object-fit: cover;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  transition: transform 0.2s;
+}
+
+.img-thumb:hover {
+  transform: scale(1.07);
+}

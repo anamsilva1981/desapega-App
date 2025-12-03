@@ -1,7 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { MenuComponent } from '../../components/menu/menu.component';
 import { ButtonComponent } from '../../components/button/button.component';
-
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { DonationItem } from '../../interfaces/product.interface';
@@ -13,13 +12,13 @@ import { ProductsService } from '../../services/products.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalViewProductComponent } from './modal-view-product/modal-view-product.component';
 import { ModalFormProductComponent } from './modal-form-product/modal-form-product.component';
-
+import { DatePipe, NgIf } from '@angular/common';
 
 
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [MenuComponent, ButtonComponent, MatTableModule, MatIconModule, MatPaginatorModule, MatSortModule],
+  imports: [MenuComponent, ButtonComponent, MatTableModule, MatIconModule, MatPaginatorModule, MatSortModule, NgIf, DatePipe ],
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss']
 })
@@ -97,6 +96,11 @@ export class ProductsComponent {
      
     this.getAllProducts();
   }
+
+  openImage(url: string) {
+  window.open(url, '_blank');
+}
+
 
 }
 
