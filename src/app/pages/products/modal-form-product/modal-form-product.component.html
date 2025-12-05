@@ -63,18 +63,18 @@
         <div class="col-12 col-md-6 mb-2">
             <mat-form-field  class="full-width w-100">
                 <mat-label>Status</mat-label>
-                <input 
-                    type="text" 
-                    matInput 
-                    formControlName="status"
-                    placeholder="Digite seu status">
+                <mat-select formControlName="status">
+                    <mat-option value="disponivel">Disponivel</mat-option>
+                    <mat-option value="reservado">Reservado</mat-option>
+                    <mat-option value="doado">Doado</mat-option>
+                </mat-select>
                 @if (formProduct.controls['status'].invalid) {
                 <mat-error>Por favor digite um status válido</mat-error>
                 }
             </mat-form-field>
         </div>
 
-        <div class="col-12 col-md-6 mb-2">
+        <!-- <div class="col-12 col-md-6 mb-2">
             <mat-form-field  class="full-width w-100">
                 <mat-label>Apelino</mat-label>
                 <input 
@@ -86,21 +86,7 @@
                 <mat-error>Por favor digite um Apelino válido</mat-error>
                 }
             </mat-form-field>
-        </div>
-
-        <div class="col-12 col-md-6 mb-2">
-            <mat-form-field  class="full-width w-100">
-                <mat-label>Descrição</mat-label>
-                <input 
-                    type="text" 
-                    matInput 
-                    formControlName="description"
-                    placeholder="Digite seu status">
-                @if (formProduct.controls['description'].invalid) {
-                <mat-error>Por favor digite uma Descrição válido</mat-error>
-                }
-            </mat-form-field>
-        </div>
+        </div> -->
 
         <div class="col-12 col-md-6 mb-2">
             <mat-form-field  class="full-width w-100">
@@ -112,6 +98,20 @@
                     placeholder="Digite seu images">
                 @if (formProduct.controls['images'].invalid) {
                 <mat-error>Por favor digite um images válido</mat-error>
+                }
+            </mat-form-field>
+        </div>
+
+        <div class="col-12 mb-2">
+            <mat-form-field  class="full-width w-100">
+                <mat-label>Descrição</mat-label>
+                <textarea 
+                    matInput 
+                    formControlName="description" 
+                    placeholder="Descreva detalhes do item aqui"
+                ></textarea>
+                @if (formProduct.controls['description'].invalid) {
+                <mat-error>Por favor digite uma Descrição válido</mat-error>
                 }
             </mat-form-field>
         </div>

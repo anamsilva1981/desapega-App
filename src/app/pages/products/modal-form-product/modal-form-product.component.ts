@@ -10,6 +10,7 @@ import { MatSelectModule } from '@angular/material/select';
 
 
 
+
 @Component({
   selector: 'app-modal-form-product',
   standalone: true,
@@ -69,15 +70,15 @@ formProduct!: FormGroup;
   
   buildForm(){
     this.formProduct = this.formBuilder.group({
-      title: [null, [Validators.required]],
-      description: [null, [Validators.required]],
+      title: [null, [Validators.required, Validators.minLength(5)]],
+      description: [null, [Validators.required, Validators.minLength(20)]],
       category: [null],
       condition: [null, Validators.required],
       status: [null],
       quantity: [null, [Validators.required]],
       images: [null],
       ownerId: [null],
-      nickName: [null],
+      // nickName: [null],
       createdAt: [null],
     })
 
@@ -96,7 +97,7 @@ formProduct!: FormGroup;
       quantity: this.data.quantity,
       images: this.data.images,
       ownerId: this.data.ownerId,
-      nickName: this.data.nickName,
+      // nickName: this.data.nickName,
       createdAt: this.data.createdAt,
     });
   }
