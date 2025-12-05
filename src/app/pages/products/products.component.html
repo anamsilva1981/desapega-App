@@ -13,21 +13,11 @@
         <div class="col-12">
             <app-button class="float-end" textButton="+ cadastrar" (click)="openModalAddProduct()"></app-button>
 
-            <!-- <mat-form-field> Barra de pesquisa
-                <mat-label>Filter</mat-label>
-                <input matInput (keyup)="applyFilter($event)" placeholder="Digite sua busca" #input>
-            </mat-form-field> -->
-
              <table class="mat-elevation-z8" mat-table [dataSource]="dataSource" matSort>
 
                 <ng-container matColumnDef="title">
                     <th class="th-table" mat-header-cell *matHeaderCellDef mat-sort-header> Produto </th>
                     <td class="td-table" mat-cell *matCellDef="let product"> {{product.title}} </td>
-                </ng-container>
-
-                <ng-container matColumnDef="description">
-                    <th class="th-table" mat-header-cell *matHeaderCellDef mat-sort-header> Descrição </th>
-                    <td class="td-table" mat-cell *matCellDef="let product"> {{product.description}} </td>
                 </ng-container>
 
                 <ng-container matColumnDef="quantity">
@@ -74,7 +64,6 @@
                 </ng-container>
 
                 <tr class="mat-row" *matNoDataRow>
-                    <!-- <td class="mat-cell" colspan="4">Não foram encontrados dados para a pesquisa:  "{{input.value}}"</td> -->
                     <td class="mat-cell" colspan="4">Não foram encontrados dados para a pesquisa:  </td>
                 </tr>
                 
@@ -82,11 +71,9 @@
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
                 
                 <tr class="mat-row" *matNoDataRow>
-                    <!-- <td class="mat-cell" colspan="4">Não foram encontrados dados para a pesquisa: "{{input.value}}"</td> -->
                     <td class="mat-cell" colspan="4">Não foram encontrados dados para a pesquisa:  </td>
                 </tr>
             </table>
-
 
             <mat-paginator class="shadow-sm" [pageSizeOptions]="[10]" aria-label="Selecione produtos por página"></mat-paginator>
         </div>

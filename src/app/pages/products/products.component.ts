@@ -24,7 +24,7 @@ import { DatePipe, NgIf } from '@angular/common';
 })
 export class ProductsComponent {
 
-  displayedColumns: string[] = ['title', 'description', 'quantity', 'condition', 'status', 'images', 'createdAt', 'action'];
+  displayedColumns: string[] = ['title', 'quantity', 'condition', 'status', 'images', 'createdAt', 'action'];
   dataSource: any;
   listProducts: DonationItem[] = [];
 
